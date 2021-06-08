@@ -1,7 +1,7 @@
 {
-  "name": "usermatters-react",
+  "name": "usermatters-vue",
   "version": "0.0.0-semantic-release",
-  "description": "React component for User Matters",
+  "description": "Vue component for User Matters",
   "publishConfig": {
     "access": "public"
   },

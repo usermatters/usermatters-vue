@@ -2,21 +2,21 @@
 
 ---
 
-# usermatters-react
+# usermatters-vue
 
-[![npm version](https://badgen.net/npm/v/usermatters-react)](https://npm.im/usermatters-react)
+[![npm version](https://badgen.net/npm/v/usermatters-vue)](https://npm.im/usermatters-vue)
 
 ## Install
 
 ```bash
-npm i usermatters-react
+npm i usermatters-vue
 ```
 
 ## Usage
 
-```tsx
-<UserMatters project="YOUR_PROJECT_ID">
-  {({ handleClick }) => <button onClick={handleClick}>Feedback</button>}
+```vue
+<UserMatters project="PROJECT_ID" v-slot="{ handleClick }">
+  <button class="ml-20" @click="handleClick">feedback</button>
 </UserMatters>
 ```
 
