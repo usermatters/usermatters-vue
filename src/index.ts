@@ -22,26 +22,23 @@ export const UserMatters = defineComponent({
   setup(props, { slots }) {
     const instance = create()
 
-    const defaultSlot = slots.default
-
     onBeforeUnmount(() => {
       instance && instance.destroy()
     })
-
-    if (!defaultSlot) {
-      return () =>
-        h('usermatters-app', {
-          ...props,
-          open: true,
-        })
-    }
 
     const handleClick = (e: any) => {
       instance.show(e.target, props)
     }
 
     return () => {
-      return defaultSlot({ handleClick })
+      if (!slots.default) {
+        return h('usermatters-app', {
+          ...props,
+          open: true,
+        })
+      }
+
+      return slots.default({ handleClick })
     }
   },
 })
