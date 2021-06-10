@@ -15,9 +15,13 @@ npm i usermatters-vue
 ## Usage
 
 ```vue
-<UserMatters project="PROJECT_ID" v-slot="{ handleClick }">
+<script setup>
+import { FeedbackPopup } from 'usermatters-vue'
+</script>
+
+<FeedbackPopup project="PROJECT_ID" v-slot="{ handleClick }">
   <button class="ml-20" @click="handleClick">feedback</button>
-</UserMatters>
+</FeedbackPopup>
 ```
 
 ## License

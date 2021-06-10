@@ -1,8 +1,8 @@
 import { defineComponent, onBeforeUnmount, h, onMounted } from 'vue'
 import { create } from 'usermatters-js'
 
-export const UserMatters = defineComponent({
-  name: 'UserMatters',
+export const FeedbackPopup = defineComponent({
+  name: 'FeedbackPopup',
 
   inheritAttrs: false,
 
