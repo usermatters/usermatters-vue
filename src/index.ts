@@ -1,4 +1,4 @@
-import { defineComponent, onBeforeUnmount, h } from 'vue'
+import { defineComponent, onBeforeUnmount, h, onMounted } from 'vue'
 import { create } from 'usermatters-js'
 
 export const UserMatters = defineComponent({
@@ -22,8 +22,14 @@ export const UserMatters = defineComponent({
   setup(props, { slots }) {
     const instance = create()
 
+    onMounted(() => {
+      document.addEventListener('click', instance.handleDocumentClick)
+    })
+
     onBeforeUnmount(() => {
-      instance && instance.destroy()
+      document.removeEventListener('click', instance.handleDocumentClick)
+
+      instance.destroy()
     })
 
     const handleClick = (e: any) => {
@@ -35,6 +41,7 @@ export const UserMatters = defineComponent({
         return h('usermatters-app', {
           ...props,
           open: true,
+          inline: true,
         })
       }
 
